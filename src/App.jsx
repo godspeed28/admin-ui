@@ -8,26 +8,30 @@ function App() {
 
   return (
     <>
-      <div>
+    <div className="bg-white min-h-screen text-center flex flex-col justify-center items-center">
+      <div className="flex items-center justify center space-x-8 mb-12">
         <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+          <img src={viteLogo} className="logo w-24 h-24" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src={reactLogo} className="logo react w-24 h-24 animate-spin" alt="React logo" 
+          style={{animationDuration: "10s"}}/>
         </a>
       </div>
-      <h1 className="bg-blue-200">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+      <h1 className="text-5xl font-bold mb-16">Vite + React</h1>
+      {/* <h3>Abe Kolin</h3> */}
+      <div className="text-sm space-y-6 mb-8">
+        <button className="bg-gray-100 text-black py-2 px-6 rounded-lg text-lg font-medium" onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
+        <p className="text-neutral">
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
+      <p className="read-the-docs text-neutral-500">
         Click on the Vite and React logos to learn more
       </p>
+      </div>
     </>
   );
 }
