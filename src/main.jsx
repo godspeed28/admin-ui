@@ -8,6 +8,7 @@ import PageRegister from "./latihan/pages/PageRegister.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     {/* <PageLogin /> */}
-    <PageRegister />
+    {/* <PageRegister /> */}
+    <App/>
   </StrictMode>,
 );
