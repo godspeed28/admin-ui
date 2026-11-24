@@ -23,7 +23,7 @@ function FormSignUp() {
               label="Name"
               type="text"
               className="py-3 pl-4 text-sm rounded-md w-full bg-special-mainBg border border-gray-03 text-gray-01 focus:border-black focus:outline-none focus:ring-0"
-              placeholder="Enter your full name"
+              placeholder="Abe Kolin"
               name="name"
               id="name"
             />
@@ -49,7 +49,7 @@ function FormSignUp() {
               label="Password"
               type="password"
               className="py-3 pl-4 text-sm rounded-md w-full bg-special-mainBg border border-gray-03 text-gray-01 focus:border-black focus:outline-none focus:ring-0"
-              placeholder="Enter your password"
+              placeholder="************"
               name="password"
               id="password"
             />
@@ -69,6 +69,11 @@ function FormSignUp() {
           </div> */}
           {/* input confirm password end */}
           
+          <div className='mb-3 text-center text-gray-500 text-sm'>
+            <p>By continuing, you agree to our <span className='text-primary'>
+              <Link to="/terms">terms of service</Link>.</span></p>
+          </div>
+
           {/* button register start */}
           <Button type="submit">
             Sign Up
