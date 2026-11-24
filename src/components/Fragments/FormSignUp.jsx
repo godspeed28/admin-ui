@@ -68,21 +68,10 @@ function FormSignUp() {
             />
           </div> */}
           {/* input confirm password end */}
-
-          {/* checkbox start */}
-          <div className="mb-5">
-            <CheckBox
-              label="I agree to the Terms and Conditions"
-              id="terms"
-              type="checkbox"
-              name="terms"
-            />
-          </div>
-          {/* checkbox end */}
-
+          
           {/* button register start */}
           <Button type="submit">
-            Create Account
+            Sign Up
           </Button>
           {/* button register end */}
 
