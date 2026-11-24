@@ -1,122 +1,42 @@
-// import { useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
-// import "./App.css";
-
-// function App() {
-//   const [count, setCount] = useState(0);
-
-//   return (
-//     <>
-//     <div className="bg-white min-h-screen text-center flex flex-col justify-center items-center">
-//       <div className="flex items-center justify center space-x-8 mb-12">
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo w-24 h-24" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react w-24 h-24 animate-spin" alt="React logo"
-//           style={{animationDuration: "10s"}}/>
-//         </a>
-//       </div>
-//       <h1 className="text-5xl font-bold mb-16">Vite + React</h1>
-//       {/* <h3>Abe Kolin</h3> */}
-//       <div className="text-sm space-y-6 mb-8">
-//         <button className="bg-gray-100 text-black py-2 px-6 rounded-lg text-lg font-medium" onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p className="text-neutral">
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs text-neutral-500">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default App;
-
-// import "./App.css";
-
-// function App() {
-//   return (
-//     <>
-//       <div className="bg-gray-100 min-h-screen p-6">
-//         {/* card begin */}
-//         {/* <div className="flex flex-col justify-between bg-white p-6 min-h-60 rounded-lg shadow">
-//           <div className=" flex items-center justify-between">
-//             <h2 className="text-lg font-semibold">Product</h2>
-//             <span className="text-green-500">Active</span>
-//           </div>
-
-//           <p className=" text-gray-800">Product description goes here.</p>
-
-//           <div className=" flex justify-end gap-2">
-//             <button className="rounded bg-gray-200 px-4 py-2">Cancel</button>
-//             <button className="rounded bg-blue-500 px-4 py-2 text-white">
-//               Buy
-//             </button>
-//           </div>
-//         </div> */}
-//         {/* card end */}
-//         <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-//           {/* card begin */}
-//           <div className="bg-white p-6 min-h-40 rounded-lg shadow text-5xl flex justify-center items-center hover:shadow-lg transition-shadow hover:border hover:bg-gray-200 hover:scale-105 duration-300 ">
-//             card 1
-//           </div>
-//           <div className="bg-white p-6 min-h-40 rounded-lg shadow text-5xl flex justify-center items-center hover:shadow-lg transition-shadow hover:border hover:bg-gray-200 hover:scale-105 duration-300 ">
-//             card 2
-//           </div>
-//           <div className="bg-white p-6 min-h-40 rounded-lg shadow text-5xl flex justify-center items-center hover:shadow-lg transition-shadow hover:border hover:bg-gray-200 hover:scale-105 duration-300 ">
-//             card 3
-//           </div>
-//           <div className="bg-white p-6 min-h-40 rounded-lg shadow text-5xl flex justify-center items-center hover:shadow-lg transition-shadow hover:border hover:bg-gray-200 hover:scale-105 duration-300 ">
-//             card 4
-//           </div>
-//           <div className="bg-white p-6 min-h-40 rounded-lg shadow text-5xl flex justify-center items-center hover:shadow-lg transition-shadow hover:border hover:bg-gray-200 hover:scale-105 duration-300 ">
-//             card 5
-//           </div>
-//           {/* card end */}
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default App;
-
-// import "./App.css";
-
-// function App() {
-//   return (
-//     <div className="bg-special-mainBg">
-//       <h1 className="text-3xl font-bold bg-primary"><span className="text-special-green">Ini</span> font <span className="text-secondary">default</span></h1>
-//       <h1 className="text-3xl font-bold font-poppins text-primary">Ini <span className="text-special-red">font</span> poppins</h1>
-//       <p className="m-4 border border-primary">
-//         Ini font default juga. Lorem ipsum dolor sit, amet consectetur
-//         adipisicing elit. Illum perferendis dolores provident debitis,
-//         necessitatibus ullam, quibusdam dolore cumque velit, molestias
-//         recusandae exercitationem pariatur. Quas ullam aliquid ea. Repellat,
-//         exercitationem similique!
-//       </p>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import "./App.css";
 import SignInPage from "./pages/signin";
 import SignUpPage from "./pages/signup";
+import ErrorPage from "./pages/error";
+import { Link } from "react-router-dom";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
+  const myRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <div>
+        				<div className="flex justify-center items-center min-h-screen">
+          <Link to="/login" className="p-2 m-5 bg-primary text-white">
+            Login
+          </Link>
+          |
+          <Link to="/register" className="p-2 m-5 bg-primary text-white">
+            Register
+          </Link>
+        </div>
+      </div>,
+      errorElement: <ErrorPage/>,
+    },
+    {
+      path: "/login",
+      element: <SignInPage/>,
+    },
+    {
+      path: "/register",
+      element: <SignUpPage/>,
+    },
+  ]);
+
   return (
-   <>
-   {/* <SignInPage/> */}
-   <SignUpPage/>
-   </>
+    <>
+      <RouterProvider router={myRouter} />
+    </>
   );
 }
 
